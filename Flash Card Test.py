@@ -170,7 +170,7 @@ FLASH_CARDS = {
 }
 
 MENU_CHOICES = ("MODE", "HELP", "DONE", "START", "CHAPTERS")
-CHAPTERS_LIST = ("1", "3", "5", "6")
+CHAPTERS_LIST = [x for x in FLASH_CARDS]
 
 
 def main():
@@ -334,9 +334,10 @@ def select_mode(mode):
 def get_chapters():
     # Determine which group of flash cards to draw from to create the test.
     print()
+    print(f"Chapters available: \n{CHAPTERS_LIST}")
     chapters = list(
         input(
-            "Which chapters would you like to study? Input chapter 1, 3, 5, 6 separated with a space. "
+            "Which chapter(s) would you like to study? Input chapter separated with a space. "
         ).split()
     )
     selection = []
@@ -348,10 +349,13 @@ def get_chapters():
                 if item not in selection:  # Prevent duplicate values
                     selection.append(item)
                     print(f"Chapter {item} included")
+            else:
+                print(f"{item} not found in chapter list")
         print()
         answer = input("Does this look correct? (y/n) ")
         if answer.lower() != "y":
-            print("All right, we'll try again.")
+            print("\nAll right, we'll try again.")
+            print(f"Chapters available: \n{CHAPTERS_LIST}")
             selection = []
             chapters = list(
                 input(
