@@ -167,6 +167,47 @@ FLASH_CARDS = {
         "Windows PowerShell": "A command-line interface (CLI) that accepts text input and accepts objects, as defined by object-oriented programming.",
         "Windows Recovery Environment (Windows RE)": "A component of Windows PE that, when needed, provides support with a powerful group of diagnostic and repair tools. ",
     },
+    "m": {  # cti120 midterm
+        "algorithm": "An ____ is a predetermined arrangement of well-defined instructions, usually to perform a computation or solve a class of problems",
+        "backbone": "Another term for bus, the primary cable that connects all nodes",
+        "broadcast": "A Packet is forwarded to all the hosts connected to the network",
+        "broadcast domain": "A ____ ____ represents the domain or area in which all connected nodes receive a broadcast packet",
+        "collision domain": "A ____ ____ represents the domain or area in which all connected nodes may experience a data collision",
+        "dense": "The number of connections considering the number of possible connections",
+        "distributed": "A ____ network is a type of computer network that is spread over different networks",
+        "frame": "An Ethernet ____ can be thought of as a container for data with a source and destination address to deliver information, called the payload",
+        "hardware": "Computer ____ is the physical components that a computer system requires to function",
+        "host": "A ____ is a computer, typically a client or server on a network",
+        "hub": "____ is a network hardware device used to connect multiple Ethernet devices that communicate in half-duplex mode",
+        "IP": "the communications protocol that offers a location and identification for computers on networks and routes traffic across the Internet.",
+        "IP address": "A logical address assigned to each host on a network",
+        "media access control (MAC) address": "____ ____ ____ (____) ____ is the physical address of a network node",
+        "network interface card (NIC)": "A Hardware component installed on your device so that it can connect to the Internet",
+        "Network redundancy": "In the event of a failure a network will remain functioning due to additional devices or communication links",
+        "node": "A ____ is any active, physical, electronic device attached to a network.",
+        "open systems interconnection (OSI)": "A Conceptual model that characterizes and standardizes the communication functions of a network",
+        "protocol": "A Network ____ is an established set of rules that determine how data is transmitted between different devices in the same network",
+        "radio frequency (RF)": "A ____ ____ (____) signal refers to a wireless electromagnetic signal used as a form of communication",
+        "scale": "To grow and manage increased demand",
+        "segment": "In networking ____ means to separate",
+        "switch": "____ is a network hardware device used to connect multiple Ethernet devices that communicate in full-duplex mode",
+        "transmission media": "____ ____ is a pathway that carries the information from sender to receiver",
+        "VLAN": "____ ____ ____ ____ A ____ is a logical grouping of devices/ports in the same broadcast domain",
+        "conceptual model": "A ____ ____ illustrates a system to help people understand a topic or concept",
+        "fragmentation": "____ is when a datagram is divided into fragments at the network layer once received from the transport layer because its too large",
+        "mnemonic": "A ____ is any learning system that assistances in retention or retrieval in the human memory",
+        "attenuation": "____ refers to the loss or reduction of signal strength",
+        "bands": "Wireless frequency ____ are frequency ranges that are selected to carry wireless signals",
+        "network backbones": "____ ____ comprise core network devices and are used to connect WANs or LANs",
+        "omnidirectional": "____ means to broadcast in all directions",
+        "Xerox Alto": "The ____ ____ is recognized as the first computer to use an Operating System (OS) with a graphical user interface",
+        "alphanumeric": "________ are designed using alphabetical and numerical characters",
+        "Network Address Translation (NAT)": "____ ____ ____ (____) translates a private address to a public address",
+        "octet": "an ____ when referring to networks identifies 8 bits",
+        "bottleneck": "A network ____ refers to a discrete condition in which data flow is limited by network resources and tends to cause the network to slow down",
+        "fully qualified domain name (FQDN)": "A ____ ____ ____ ____ (____) is one that contains both a hostname and a complete domain name.",
+        "routing protocol": "A ____ ____ defines the set of rules used by a router when it communicates routing information between adjacent routers.",
+    },
 }
 
 MENU_CHOICES = ("MODE", "HELP", "DONE", "START", "CHAPTERS")
@@ -212,7 +253,7 @@ def begin_studying(mode, chapters):
                     print()
                 else:
                     continue
-            answer = input("Answer: ")
+            answer = input("Answer:\t \t \t")
             if answer.upper() == correct_answer.upper():
                 print("Correct!")
                 correct_counter += 1
@@ -223,7 +264,7 @@ def begin_studying(mode, chapters):
                     print()
                     break
             else:
-                print(f"Correct answer:{key}")
+                print(f"Correct answer: \t{key}")
                 print()
         print(
             f"You got {correct_counter} answers correct out of {len(answer_key)}. That's {correct_counter / len(answer_key)}%!"
@@ -243,7 +284,7 @@ def begin_studying(mode, chapters):
                         print()
                     else:
                         continue
-                answer = input("Answer: ")
+                answer = input("Answer:\t \t \t")
                 if answer.upper() == correct_answer.upper():
                     print("Correct!")
                     correct_counter += 1
@@ -255,7 +296,7 @@ def begin_studying(mode, chapters):
                         print()
                         break
                 else:
-                    print(f"Correct answer: {key}")
+                    print(f"Correct answer: \t{key}")
                     print()
             print(
                 f"You got {correct_counter} answers correct out of {len(answer_key)}. That's {round((correct_counter / len(answer_key)) * 100, 2)}%!"
