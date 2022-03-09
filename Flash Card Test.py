@@ -67,8 +67,10 @@ def begin_studying(mode, chapters):
             else:
                 print(f"Correct answer: \t{key}")
                 print()
-        if correct_counter / len(answer_key) > 60:
-            answer_message = f" That's {correct_counter / len(answer_key)}%!"
+        if correct_counter / len(answer_key) > 0.6:
+            answer_message = (
+                f" That's {round((correct_counter / len(answer_key)) * 100, 2)}%!"
+            )
         else:
             answer_message = ""
         print(
