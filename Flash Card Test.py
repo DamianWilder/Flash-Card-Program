@@ -98,8 +98,12 @@ def begin_studying(mode, chapters):
                 else:
                     print(f"Correct answer: \t{key}")
                     print()
+            if correct_answer / len(answer_key) > 60:
+                answer_message = f" That's {correct_counter / len(answer_key)}%!"
+            else:
+                answer_message = ""
             print(
-                f"You got {correct_counter} answers correct out of {len(answer_key)}. That's {round((correct_counter / len(answer_key)) * 100, 2)}%!"
+                f"You got {correct_counter} answers correct out of {len(answer_key)}.{answer_message}"
             )
             print()
             play_again = input("Play again (y/n)? ")
