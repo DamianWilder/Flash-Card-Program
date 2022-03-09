@@ -38,10 +38,14 @@ def main():
 def begin_studying(mode, chapters):
     print()
     answer_key = [key for i in chapters for key in FLASH_CARDS[i]]
-    if mode == "standard":
-        random.shuffle(answer_key)
+    testing = True
+    random.shuffle(answer_key)
+    already_correct = []
+    while testing:
         correct_counter = 0
+        print(f"{len(answer_key)} questions:")
         for key in answer_key:
+            print(f"{answer_key.index(key)+ 1}. ", end="")
             correct_answer = key
             for i in FLASH_CARDS:
                 if FLASH_CARDS[i].get(key):
@@ -53,6 +57,7 @@ def begin_studying(mode, chapters):
             if answer.upper() == correct_answer.upper():
                 print("Correct!")
                 correct_counter += 1
+                already_correct.append(correct_answer)
                 print()
             elif answer == "done":
                 quit_early = input("Would you like to exit early (y/n)? ")
@@ -62,49 +67,14 @@ def begin_studying(mode, chapters):
             else:
                 print(f"Correct answer: \t{key}")
                 print()
-        if correct_answer / len(answer_key) > 60:
+        if correct_counter / len(answer_key) > 60:
             answer_message = f" That's {correct_counter / len(answer_key)}%!"
         else:
             answer_message = ""
         print(
             f"You got {correct_counter} answers correct out of {len(answer_key)}.{answer_message}"
         )
-
-    elif mode == "remembered":
-        testing = True
-        random.shuffle(answer_key)
-        already_correct = []
-        while testing:
-            correct_counter = 0
-            for key in answer_key:
-                correct_answer = key
-                for i in FLASH_CARDS:
-                    if FLASH_CARDS[i].get(key):
-                        print(FLASH_CARDS[i][key])
-                        print()
-                    else:
-                        continue
-                answer = input("Answer:\t \t \t")
-                if answer.upper() == correct_answer.upper():
-                    print("Correct!")
-                    correct_counter += 1
-                    already_correct.append(correct_answer)
-                    print()
-                elif answer == "done":
-                    quit_early = input("Would you like to exit early (y/n)? ")
-                    if quit_early == "y":
-                        print()
-                        break
-                else:
-                    print(f"Correct answer: \t{key}")
-                    print()
-            if correct_answer / len(answer_key) > 60:
-                answer_message = f" That's {correct_counter / len(answer_key)}%!"
-            else:
-                answer_message = ""
-            print(
-                f"You got {correct_counter} answers correct out of {len(answer_key)}.{answer_message}"
-            )
+        if mode == "remembered":
             print()
             play_again = input("Play again (y/n)? ")
             print()
